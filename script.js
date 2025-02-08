@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 // const Person = function (firstName, birthYear) {
 //   this.firstName = firstName;
@@ -14,22 +14,32 @@
 
 // CHALLENGE 1
 
-const Car = function (make, speed) {
-  this.make = make;
-  this.speed = speed;
-};
+// const Car = function (make, speed) {
+//   this.make = make;
+//   this.speed = speed;
+// };
 
-Car.prototype.accelerate = function () {
-  this.speed += 10;
-  console.log(this.speed);
-};
+// Car.prototype.accelerate = function () {
+//   this.speed += 10;
+//   console.log(this.speed);
+// };
 
-Car.prototype.brake = function () {
-  this.speed -= 5;
-  console.log(this.speed);
-};
+// Car.prototype.brake = function () {
+//   this.speed -= 5;
+//   console.log(this.speed);
+// };
 
-const car1 = new Car('BMW', 120);
-const car2 = new Car('Mercedes', 95);
+// const car1 = new Car('BMW', 120);
+// const car2 = new Car('Mercedes', 95);
 
-car1.accelerate();
+// car1.accelerate();
+
+//ES6 CLASSES
+
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+}
+const Jessica = new PersonCl('Jessica', 1996);
