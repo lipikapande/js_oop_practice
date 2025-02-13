@@ -106,3 +106,84 @@
 // EV.prototype.chargeBattery = function (chargeTo) {
 //   this.charge = chargeTo;
 // };
+
+//ENCAPSULATION
+
+// class Account {
+//   locale = navigator.language;
+//   bank = 'Bankist';
+//   #movements = []; //private field
+//   #pin;
+
+//   constructor(owner, currency, pin) {
+//     this.owner = owner;
+//     this.currency = currency;
+//     this.#pin = pin;
+//   }
+
+//   getMovements() {
+//     return this.#movements; //non-chainable
+//   }
+//   deposit(val) {
+//     this.#movements.push(val);
+//     return this;
+//   }
+//   withdrawal(val) {
+//     this.deposit(-val);
+//     return this;
+//   }
+//   #approveLoan(val) {
+//     return true;
+//   }
+//   requestLoan(val) {
+//     if (this.#approveLoan(val)) {
+//       this.deposit(val);
+//     }
+//     return this;
+//   }
+// }
+
+// const acc1 = new Account('Jonas', 'EUR', 1111);
+
+// // acc1.movements.push(250);
+// // acc1.movements.push(-140);
+
+// acc1.deposit(250);
+// acc1.withdrawal(140);
+
+// acc1.deposit(200).withdrawal(500).deposit(600);
+
+//CHALLENGE 4
+
+class CarCl {
+  constructor(make, speed) {
+    this.speed = speed;
+    this.make = make;
+  }
+  accelerate() {
+    this.speed += 10;
+    console.log(speed);
+  }
+  brake() {
+    this.speed -= 5;
+    console.log(speed);
+    return this;
+  }
+}
+
+class EVCl extends CarCl {
+  #charge;
+  constructor(make, speed, charge) {
+    super(make, speed);
+    this.#charge = charge;
+  }
+  chargeBattery(chargeTo) {
+    this.#charge = chargeTo;
+    return this;
+  }
+  accelerate() {
+    this.speed += 20;
+    this.#charge--;
+    return this;
+  }
+}
